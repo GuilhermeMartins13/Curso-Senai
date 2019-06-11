@@ -3,9 +3,9 @@ package com.GuilhermeMartins.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.GuilhermeMartins.domain.Estado;
+import com.GuilhermeMartins.domain.Cliente;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Estado, Integer>{
+public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 
 }
