@@ -8,15 +8,17 @@ import org.springframework.stereotype.Service;
 import com.GuilhermeMartins.domain.Cliente;
 import com.GuilhermeMartins.repositories.ClienteRepository;
 
-     @Service
-	public class ClienteService {
-     
-		@Autowired
-        private ClienteRepository repo;
-         
-		public Cliente buscar(Integer idCliente) {
+import javassist.tools.rmi.ObjectNotFoundException;
+
+@Service
+public class ClienteService {
+
+
+	private ClienteRepository repo;
+
+	public Cliente buscar(Integer idCliente) {
 		Optional<Cliente> obj = repo.findById(idCliente);
-          return obj.orElse(null);
+          return obj.orElseThrow((); -> new ObjectNotFoundException(
+        		  "Número de id não encontrado. Id: " + idCliente + "tipo: " + Cliente.class.getName()));
 	}
 }
-
